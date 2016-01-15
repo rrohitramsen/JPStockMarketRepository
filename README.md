@@ -9,6 +9,12 @@ StockMarket Application Class UML Design.
 
 # How to use:
 
+Pull the code into your local Eclipse or Spring STS, the you are good to go.
+
+StockmarketApplicationContext : This class has main method, Can Run the application for dumy data.
+
+java StockmarketApplicationContext
+
 This is a maven project, can run using ..
 
 mvn test -> to execute the unit tests.
@@ -19,7 +25,5 @@ To run the program just run:
 
 java -jar target/JPStockMarket-0.0.1-SNAPSHOT.jar
 
-StockmarketApplicationContext : This class has main method, Can Run the application for dumy data.
 
-java StockmarketApplicationContext
 
