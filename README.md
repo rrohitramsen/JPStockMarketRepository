@@ -20,7 +20,7 @@ com.stockmarket.formula : JUNIT for testing all formula's
 
 # How to use:
 
-Pull the code into your local Eclipse or Spring STS, the you are good to go.
+Pull the code into your local Eclipse or Spring STS, then you are good to go.
 
 StockmarketApplicationContext : This class has main method, Can Run the application for dumy data.
 
