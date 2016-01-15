@@ -4,7 +4,7 @@ Requirements and Constraints & Notes are given in the problem statement.
 
 StockMarket Application Class UML Design.
 
-![stockmarketfuml](https://cloud.githubusercontent.com/assets/4227690/12353042/137696fe-bbb1-11e5-93eb-11f8bdcd4b57.jpg)
+![stockmarket_uml_2](https://cloud.githubusercontent.com/assets/4227690/12365122/cbf3644a-bbf8-11e5-8d97-20a3130e6e47.jpg)
 
 
 # JUnit Test :
