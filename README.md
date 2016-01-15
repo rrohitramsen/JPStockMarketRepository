@@ -7,6 +7,13 @@ StockMarket Application Class UML Design.
 ![stockmarketfuml](https://cloud.githubusercontent.com/assets/4227690/12353042/137696fe-bbb1-11e5-93eb-11f8bdcd4b57.jpg)
 
 
+JUnit Test :
+com.stockmarket.service :  JUNIT for stock market service
+com.stockmarket.config : JUNIT Config File
+com.stockmarket.entity.manager : JUNIT for entity manager
+com.stockmarket.exchange : JUNIT for exchange service
+com.stockmarket.formula : JUNIT for testing all formula's
+
 # How to use:
 
 Pull the code into your local Eclipse or Spring STS, the you are good to go.
