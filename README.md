@@ -1,4 +1,4 @@
-# JPStockMarketRepository
+# Super Simple Stock Market
 Example Assignment – Super Simple Stock Market
 Requirements and Constraints & Notes are given in the problem statement.
 
