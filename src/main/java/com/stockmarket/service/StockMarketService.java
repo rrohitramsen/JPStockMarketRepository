@@ -65,16 +65,10 @@ public class StockMarketService implements IStockMarketService{
 		if (stock == null || !(price > STOCK_PRICE_CHECK)){
 			throw new StockMarketException("Stock ["+stockSymbol+"] is not listed on the exchange.");
 			
-		}else if (request.equals(FormulaRequest.DividendYield)){
-			formula = FormulaFactory.newDividendYield(stock, price);
+		}else {
+			formula = FormulaFactory.newFormula(request, stock, price);
+		} 
 			
-		}else if (request.equals(FormulaRequest.PERatio)){
-			formula = FormulaFactory.newPERatio(stock, price);
-			
-		}else{
-			throw new StockMarketException(request+"Not Supported ");
-		}
-		
 		LOGGER.debug("Formula created {} ", formula);
 		Double result = (Double) formula.execute();
 		
@@ -92,17 +86,13 @@ public class StockMarketService implements IStockMarketService{
 			LOGGER.debug("Stock Market Calculating formula {} for Stock {} ", request.name(), stockSymbol);
 			
 			Formula<Double> formula ;
-			
 			Stock stock = EXCHANGE_DATA.get(stockSymbol);
 			if (stock == null){
 				throw new StockMarketException("Stock ["+stockSymbol+"] is not listed on the exchange.");
 				
-			}else if (request.equals(FormulaRequest.VolumeWeightedStockPrice)){
-				formula = FormulaFactory.newVolumeWeightedStockPrice(STOCK_ENTITY_MANAGER.getTrades(), stock);
-				
-			}else{
-				throw new StockMarketException(request+"Not Supported ");
-			}
+			}else {
+				formula = FormulaFactory.newFormula(request, stock);
+			} 
 			
 			LOGGER.debug("Formula created {} ", formula);
 			Double result = (Double) formula.execute();
@@ -119,13 +109,7 @@ public class StockMarketService implements IStockMarketService{
 		
 		LOGGER.debug("Stock Market Calculating formula {} ", request.name());
 		
-		Formula<Double> formula ;
-		if (request.equals(FormulaRequest.GeometricMean)){
-			formula = FormulaFactory.newGeometricMean(EXCHANGE_DATA);
-			
-		}else{
-			throw new StockMarketException(request+" Not Supported ");
-		}
+		Formula<Double> formula = FormulaFactory.newFormula(request, EXCHANGE_DATA);
 		
 		LOGGER.debug("Formula created {} ", formula);
 		Double result = (Double) formula.execute();
