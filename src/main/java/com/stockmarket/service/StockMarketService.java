@@ -83,22 +83,22 @@ public class StockMarketService implements IStockMarketService{
 	 */
 	public Double executeFormulaRequest(FormulaRequest request, String stockSymbol) throws StockMarketException {
 			
-			LOGGER.debug("Stock Market Calculating formula {} for Stock {} ", request.name(), stockSymbol);
+		LOGGER.debug("Stock Market Calculating formula {} for Stock {} ", request.name(), stockSymbol);
+		
+		Formula<Double> formula ;
+		Stock stock = EXCHANGE_DATA.get(stockSymbol);
+		if (stock == null){
+			throw new StockMarketException("Stock ["+stockSymbol+"] is not listed on the exchange.");
 			
-			Formula<Double> formula ;
-			Stock stock = EXCHANGE_DATA.get(stockSymbol);
-			if (stock == null){
-				throw new StockMarketException("Stock ["+stockSymbol+"] is not listed on the exchange.");
-				
-			}else {
-				formula = FormulaFactory.newFormula(request, stock);
-			} 
-			
-			LOGGER.debug("Formula created {} ", formula);
-			Double result = (Double) formula.execute();
-			
-			LOGGER.debug("Formula {} return the result {} ", request.name(), result);
-			return result;
+		}else {
+			formula = FormulaFactory.newFormula(request, stock);
+		} 
+		
+		LOGGER.debug("Formula created {} ", formula);
+		Double result = (Double) formula.execute();
+		
+		LOGGER.debug("Formula {} return the result {} ", request.name(), result);
+		return result;
 	}
 	
 	/*
@@ -118,7 +118,12 @@ public class StockMarketService implements IStockMarketService{
 		return result;
 	}
 	
-	
+	/*
+	 * @param @Trade 
+	 * @return True of False
+	 * This method record trade in in-memory trade store.
+	 * @see com.stockmarket.service.IStockMarketService#recordTrade(com.stockmarket.model.Trade)
+	 */
 	@Override
 	public boolean recordTrade(Trade trade) {
 		LOGGER.debug("Stock Market storing Trade {} in trade store", trade);
@@ -132,7 +137,10 @@ public class StockMarketService implements IStockMarketService{
 	}
 
 	
-	
+	/*
+	 * This method perform Trade with BUY Indication
+	 * @see com.stockmarket.service.IStockMarketService#buyStock(java.lang.String, double, long)
+	 */
 	@Override
 	public boolean buyStock(String stockSymbol, double tradedPrice, long shareQuantity) throws StockMarketException {
 		LOGGER.debug("Buy Stock {} with Price {} in ShareQuantity {} ", stockSymbol, tradedPrice, shareQuantity);
@@ -153,7 +161,10 @@ public class StockMarketService implements IStockMarketService{
 		return tradeComplete;
 	}
 
-	
+	/*
+	 * This method perform Trade with SELL Indication
+	 * @see com.stockmarket.service.IStockMarketService#sellStock(java.lang.String, double, long)
+	 */
 	@Override
 	public boolean sellStock(String stockSymbol, double tradedPrice, long shareQuantity) throws StockMarketException {
 		LOGGER.debug("Sell Stock {} with Price {} in ShareQuantity {} ", stockSymbol, tradedPrice, shareQuantity);
