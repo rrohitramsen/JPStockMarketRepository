@@ -2,12 +2,10 @@ package com.stockmarket.model;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-
 /*
  * @author Rohit Kumar
+ * Trade Entity class
  */
-@Entity
 public class Trade {
 	
 	private Stock stock;

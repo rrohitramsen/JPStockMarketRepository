@@ -1,12 +1,9 @@
 package com.stockmarket.model;
 
-import javax.persistence.Entity;
-
-
 /*
  * @author Rohit Kumar
+ * Stock Entity class
  */
-@Entity
 public class Stock {
 	
 	private String stockSymbol;
