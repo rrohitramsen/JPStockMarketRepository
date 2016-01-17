@@ -20,17 +20,11 @@ com.stockmarket.formula : JUNIT for testing all formula's
 
 # How to use:
 
-Pull the code into your local Eclipse or Spring STS, then you are good to go.
-
-StockmarketApplicationContext : This class has main method, Can Run the application for dumy data.
-
-java StockmarketApplicationContext
-
 This is a maven project, can run using ..
 
-mvn test -> to execute the unit tests.
+mvn test -> to execute the Junit tests.
 
-mvn package -> to generate the executable jar.
+mvn package -> to generate the executable jar. --> [JPStockMarket-0.0.1-SNAPSHOT.jar]
 
 To run the program just run:
 
