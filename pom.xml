@@ -29,11 +29,6 @@
 	
 	<dependencies>
 		<!-- Spring and Transactions -->
-		<dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
         <dependency>
 	        <groupId>org.springframework</groupId>
 	        <artifactId>spring-beans</artifactId>
@@ -42,7 +37,7 @@
 	     <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring-framework.version}</version>
         </dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -94,12 +89,6 @@
             <artifactId>log4j</artifactId>
             <version>1.2.15</version>
         </dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-			<scope>runtime</scope>
-		</dependency>
 
 	</dependencies>	
 	
@@ -111,8 +100,8 @@
 				<version>3.3</version>
 				<configuration>
 					<!-- or whatever version you use -->
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 			<plugin>
